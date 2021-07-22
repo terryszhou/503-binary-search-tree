@@ -21,8 +21,10 @@ my_BST.insert(11)
 # my_BST.print()
 
 # print(my_BST.search(11))
-print(f"The maximum value in the tree is: {my_BST.get_max()}")
-print(f"The minimum value in the tree is: {my_BST.get_min()}")
+# print(f"The maximum value in the tree is: {my_BST.get_max()}")
+# print(f"The minimum value in the tree is: {my_BST.get_min()}")
+
+print(my_BST.size())
 
 
 

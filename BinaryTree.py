@@ -57,7 +57,8 @@ class BinaryTree:
         default start is at root node
         '''
         # 1. Check if this is the first recursion
-        if not node: node = self.root
+        if not node: 
+            node = self.root
 
         # 2. Print the node
         print(node)
@@ -107,7 +108,20 @@ class BinaryTree:
         Calculate the number of nodes in the tree, starting from the given node
         If no node is provided, we can use the root as a sensible default
         '''
-        pass
+        if not node:
+            node = self.root
+
+        count = 0
+        def recurs_size(node):
+            nonlocal count
+            if node.left:
+                count += 1
+                recurs_size(node.left)
+            if node.right:
+                count += 1
+                recurs_size(node.right)
+        recurs_size(node)
+        return count
 
     def height(self, node=None):
         '''
@@ -116,7 +130,13 @@ class BinaryTree:
         Calculate the maximum amount of nodes in any one path from the given node
         If not given a specific node, default to using the root node
         '''
-        pass
+        if not node:
+            node = self.root
+
+        max_height = 0
+        def recurs_height(node, height = 1):
+            nonlocal max_height
+            
 
     def get_max(self):
         '''
@@ -132,8 +152,9 @@ class BinaryTree:
             if current_node.right:
                 # 3a. ...set CURRENT node to the RIGHT
                 current_node = current_node.right
-            # 2b. else, return the CURRENT node
+            # 2b. else...
             else:
+                # 3b. ...return the CURRENT node
                 return current_node
 
         # 4. If no nodes catch...
