@@ -30,16 +30,26 @@ class BinaryTree:
         current_node = self.root
         #4. Begin looping over tree, starting at current node
         while current_node:
-            #5. if input data is smaller than the current node...
+            #5a. if new node's data is SMALLER than the current node's data...
             if new_node.data < current_node.data:
-                # 6. ...and if the current node has nothing on its left...
+                # 6a. ...and if the current node has nothing on its LEFT...
                 if not current_node.left:
-                    # 7. ...then set the current node's left to the new node.
+                    # 7a. ...then set the current node's LEFT to the new node.
                     current_node.left = new_node
                     return
-                # 8. Or if there IS a node to the left, go there and begin again from #5.
+                # 8a. Or if there is a node to the LEFT, go there and begin again from #4.
                 else: current_node = current_node.left
-        
+            # 5b. if input data is LARGER than the current node...
+            elif new_node.data > current_node.data:
+                # 6b. ... and i the current node has nothing on its RIGHT
+                if not current_node.right:
+                    # 7b. ...then set the current node's RIGHT to the new node.
+                    current_node.right = new_node
+                    return
+                # 8b. Or if there is a node to the RIGHT, go there and begin again from #4.
+                else:
+                    current_node = current_node.right
+
 
     def search(self, val):
         '''
