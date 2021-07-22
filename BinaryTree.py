@@ -81,27 +81,23 @@ class BinaryTree:
         If the node exists, return it
         If the node doesn't exist, return false
         '''
-        # 1. Check if tree is empty
-        if not self.root:
-            return False
-
-        # 2. Loop through tree starting at root.
+        # 1. Loop through tree starting at root.
         current_node = self.root
 
         while current_node:
-            # 3a. If input value is less than the current node...
+            # 2a. If input value is less than the current node...
             if val < current_node.data:
-                # 4a. ...then set current node to be the left.
+                # 3a. ...then set current node to be the left.
                 current_node = current_node.left
-            # 3b. Else if input value is greater than the current node...
+            # 2b. Else if input value is greater than the current node...
             elif val > current_node.data:
-                # 4b. ...then set current node to be the right.
+                # 3b. ...then set current node to be the right.
                 current_node = current_node.right
-            # 3c. Else, return the current node.
+            # 2c. Else, return the current node.
             else:
                 return current_node
 
-        # 5. If no nodes catch...
+        # 4. If no nodes catch...
         return False
 
     def size(self, node=None):
@@ -128,7 +124,21 @@ class BinaryTree:
         perform depth first search
         Calculate the maximum value held in the tree
         '''
-        pass
+        # 1. Loop through tree starting at ROOT.
+        current_node = self.root
+        while current_node:
+
+            # 2a. If there is a node to the RIGHT...
+            if current_node.right:
+                # 3a. ...set CURRENT node to the RIGHT
+                current_node = current_node.right
+            # 2b. else, return the CURRENT node
+            else:
+                return current_node
+
+        # 4. If no nodes catch...
+        else:
+            return False
 
     def get_min(self):
         '''
@@ -136,4 +146,18 @@ class BinaryTree:
         perform depth first search
         Calculate the minimum value held in the tree
         '''
-        pass
+        # 1. Loop through tree starting at ROOT.
+        current_node = self.root
+        while current_node:
+
+            # 2a. If there is a node to the LEFT...
+            if current_node.left:
+                # 3a. ...set CURRENT node to the LEFT
+                current_node = current_node.left
+            # 2b. else, return the CURRENT node
+            else:
+                return current_node
+
+        # 4. If no nodes catch...
+        else:
+            return False
